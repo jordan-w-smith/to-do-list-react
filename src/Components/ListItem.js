@@ -3,7 +3,7 @@ import './ListItem.css'
 
 const ListItem = (props) => {
     return(
-        props.list1.map(listItem => <li>{listItem}</li>)
+    props.list1.map(listItem => <li>{listItem.name}{listItem.done}</li>)
     )
 }
 

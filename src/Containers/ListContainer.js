@@ -5,37 +5,46 @@ class ListContainer extends React.Component {
     constructor() {
         super()
         this.state = {
-            list1: ["item1", "item2", "item3"],
+            list1: [
+                {
+                    name: "vacuum",
+                    done: false
+                },
+                {
+                    name: "do washing",
+                    done: false
+                }
+            ],
             input: ""
         }
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        // this.handleChange = this.handleChange.bind(this)
+        // this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    handleChange(event) {
-        console.log(event.target.value);
-        this.setState({
-            input: event.target.value
-        })
-    }
+    // handleChange(event) {
+    //     console.log(event.target.value);
+    //     this.setState({
+    //         input: event.target.value
+    //     })
+    // }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        console.log('clicked bro')
-        this.setState({
-            list1: [...this.state.list1, this.state.input],
-            input: ""
-        })
-    }
+    // handleSubmit(event) {
+    //     event.preventDefault();
+    //     console.log('clicked bro')
+    //     this.setState({
+    //         list1: [...this.state.list1, this.state.input],
+    //         input: ""
+    //     })
+    // }
 
     render() {
         return (
             <>
-                <List 
-                handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit}
-                input={this.state.input}
-                list1={this.state.list1}
+                <List
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                    input={this.state.input}
+                    list1={this.state.list1}
                 >
                 </List>
                 {/* <form>
