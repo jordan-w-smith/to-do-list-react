@@ -1,0 +1,19 @@
+.list-container {
+    width: 300px;
+}
+
+ul {
+    padding-left: 0;
+}
+
+input[type="text"]{
+    width: 250px;
+    text-align: center;
+}
+
+input[type="submit"] {
+}
+
+form {
+    display: flex;
+}
