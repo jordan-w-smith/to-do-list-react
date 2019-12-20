@@ -7,7 +7,7 @@ const List = (props) => {
         <div className="list-container">
             <h2>List Name</h2>
             <ul>
-                <ListItem list1={props.list1}></ListItem>
+                <ListItem list1={props.list1} changeToDone={props.changeToDone}></ListItem>
             </ul>
             <form>
                     <input type="text" value={props.input} onChange={props.handleChange}></input>

@@ -12,30 +12,41 @@ class ListContainer extends React.Component {
                 },
                 {
                     name: "do washing",
-                    done: false
+                    done: true
                 }
             ],
             input: ""
         }
-        // this.handleChange = this.handleChange.bind(this)
-        // this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    // handleChange(event) {
-    //     console.log(event.target.value);
-    //     this.setState({
-    //         input: event.target.value
-    //     })
-    // }
+    handleChange(event) {
+        console.log(event.target.value);
+        this.setState({
+            input: event.target.value
+        })
+    }
 
-    // handleSubmit(event) {
-    //     event.preventDefault();
-    //     console.log('clicked bro')
-    //     this.setState({
-    //         list1: [...this.state.list1, this.state.input],
-    //         input: ""
-    //     })
-    // }
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log('clicked bro')
+        this.setState({
+            list1: [...this.state.list1, {
+                name: this.state.input,
+                done: false
+            }],
+            input: ""
+        })
+    }
+
+    changeToDone() {
+        this.setState({
+            list1: {
+                
+            }
+        })
+    }
 
     render() {
         return (
@@ -43,6 +54,7 @@ class ListContainer extends React.Component {
                 <List
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
+                    changeToDone={this.changeToDone}
                     input={this.state.input}
                     list1={this.state.list1}
                 >
