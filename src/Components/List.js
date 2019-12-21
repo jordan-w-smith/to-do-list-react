@@ -6,6 +6,8 @@ const List = (props) => {
     return (
         <div className="list-container">
             <h2>List Name</h2>
+
+    <p>Left to do: {props.toDoCount()}</p>
             <ul>
                 <ListItem 
                 list1={props.list1} 

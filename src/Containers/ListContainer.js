@@ -19,12 +19,13 @@ class ListContainer extends React.Component {
                     done: false
                 }
             ],
-            input: ""
+            input: "",
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.changeToDone = this.changeToDone.bind(this)
         this.changeToNotDone = this.changeToNotDone.bind(this)
+        this.toDoCount = this.toDoCount.bind(this)
     }
 
     handleChange(event) {
@@ -52,16 +53,9 @@ class ListContainer extends React.Component {
         this.setState(prevState => ({
             list1: prevState.list1.map(
               item => item.name === listItem.name && listItem.done === false ? {...item, done: true}
-            //   : item => item.name === listItem.name && listItem.done === true ? {...item, done: false}
               : item
             )
         }))
-    //     list1: prevState.list1.map(
-    //         item => {
-    //             item.name === listItem.name ? {...item, done: 'true'} : item  
-    //           }
-    //       )
-    //   }))
     }
 
     changeToNotDone(listItem) {
@@ -73,6 +67,21 @@ class ListContainer extends React.Component {
         }))
     }
 
+    toDoCount() {
+        console.log("hey")
+        let total = 0
+        let item
+        for (item of this.state.list1) {
+            if(item.done === false) { 
+                total ++ 
+            }
+            else { 
+                total = total + 0
+            }
+        }
+        return total
+    }
+
     render() {
         return (
             <>
@@ -81,6 +90,7 @@ class ListContainer extends React.Component {
                     handleSubmit={this.handleSubmit}
                     changeToDone={this.changeToDone}
                     changeToNotDone={this.changeToNotDone}
+                    toDoCount={this.toDoCount}
                     input={this.state.input}
                     list1={this.state.list1}
                 >
