@@ -29,7 +29,6 @@ class ListContainer extends React.Component {
     }
 
     handleChange(event) {
-        console.log(event.target.value);
         this.setState({
             input: event.target.value
         })
@@ -48,8 +47,6 @@ class ListContainer extends React.Component {
     }
 
     changeToDone(listItem) {
-        console.log('changetodone clicked')
-        console.log(listItem.name)
         this.setState(prevState => ({
             list1: prevState.list1.map(
               item => item.name === listItem.name && listItem.done === false ? {...item, done: true}
@@ -59,7 +56,6 @@ class ListContainer extends React.Component {
     }
 
     changeToNotDone(listItem) {
-        console.log('firing')
         this.setState(prevState => ({
             list1: prevState.list1.map(
                 item => item.name === listItem.name && listItem.done === true ? {...item, done: false}: item
@@ -68,7 +64,6 @@ class ListContainer extends React.Component {
     }
 
     toDoCount() {
-        console.log("hey")
         let total = 0
         let item
         for (item of this.state.list1) {
@@ -95,10 +90,6 @@ class ListContainer extends React.Component {
                     list1={this.state.list1}
                 >
                 </List>
-                {/* <form>
-                    <input value={this.state.input} onChange={this.handleChange}></input>
-                    <input onClick={this.handleSubmit} type="submit"></input>
-                </form> */}
             </>
         )
     }
