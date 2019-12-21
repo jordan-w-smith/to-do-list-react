@@ -7,7 +7,7 @@ const ListItem = (props) => {
             <li>{listItem.name}
             {listItem.done === false ?
                 <img onClick={() => props.changeToDone(listItem)} src="https://ionicons.com/ionicons/svg/md-square.svg" alt="unchecked"></img>
-                : <img src="https://ionicons.com/ionicons/svg/md-checkbox.svg" alt="checked"></img>
+                : <img onClick={() => props.changeToNotDone(listItem)} src="https://ionicons.com/ionicons/svg/md-checkbox.svg" alt="checked"></img>
             }</li>)
     )
 }

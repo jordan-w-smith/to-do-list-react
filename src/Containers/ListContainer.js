@@ -13,6 +13,10 @@ class ListContainer extends React.Component {
                 {
                     name: "do washing",
                     done: true
+                },
+                {
+                    name: "iron",
+                    done: false
                 }
             ],
             input: ""
@@ -20,6 +24,7 @@ class ListContainer extends React.Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.changeToDone = this.changeToDone.bind(this)
+        this.changeToNotDone = this.changeToNotDone.bind(this)
     }
 
     handleChange(event) {
@@ -46,7 +51,24 @@ class ListContainer extends React.Component {
         console.log(listItem.name)
         this.setState(prevState => ({
             list1: prevState.list1.map(
-              item => item.name === listItem.name ? {...item, done: 'true'}: item  
+              item => item.name === listItem.name && listItem.done === false ? {...item, done: true}
+            //   : item => item.name === listItem.name && listItem.done === true ? {...item, done: false}
+              : item
+            )
+        }))
+    //     list1: prevState.list1.map(
+    //         item => {
+    //             item.name === listItem.name ? {...item, done: 'true'} : item  
+    //           }
+    //       )
+    //   }))
+    }
+
+    changeToNotDone(listItem) {
+        console.log('firing')
+        this.setState(prevState => ({
+            list1: prevState.list1.map(
+                item => item.name === listItem.name && listItem.done === true ? {...item, done: false}: item
             )
         }))
     }
@@ -58,6 +80,7 @@ class ListContainer extends React.Component {
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
                     changeToDone={this.changeToDone}
+                    changeToNotDone={this.changeToNotDone}
                     input={this.state.input}
                     list1={this.state.list1}
                 >
