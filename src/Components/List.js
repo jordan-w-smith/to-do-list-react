@@ -8,6 +8,7 @@ const List = (props) => {
             <h2>List Name</h2>
 
     <p>Left to do: {props.toDoCount()}</p>
+    <p onClick={props.markAllDone}>Change all to done</p>
             <ul>
                 <ListItem 
                 list1={props.list1} 
