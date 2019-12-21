@@ -19,6 +19,7 @@ class ListContainer extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.changeToDone = this.changeToDone.bind(this)
     }
 
     handleChange(event) {
@@ -40,12 +41,14 @@ class ListContainer extends React.Component {
         })
     }
 
-    changeToDone() {
-        this.setState({
-            list1: {
-                
-            }
-        })
+    changeToDone(listItem) {
+        console.log('changetodone clicked')
+        console.log(listItem.name)
+        this.setState(prevState => ({
+            list1: prevState.list1.map(
+              item => item.name === listItem.name ? {...item, done: 'true'}: item  
+            )
+        }))
     }
 
     render() {
