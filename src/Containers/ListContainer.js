@@ -51,8 +51,8 @@ class ListContainer extends React.Component {
     changeToDone(listItem) {
         this.setState(prevState => ({
             list1: prevState.list1.map(
-              item => item.name === listItem.name && listItem.done === false ? {...item, done: true}
-              : item
+                item => item.name === listItem.name && listItem.done === false ? { ...item, done: true }
+                    : item
             )
         }))
     }
@@ -60,7 +60,7 @@ class ListContainer extends React.Component {
     changeToNotDone(listItem) {
         this.setState(prevState => ({
             list1: prevState.list1.map(
-                item => item.name === listItem.name && listItem.done === true ? {...item, done: false}: item
+                item => item.name === listItem.name && listItem.done === true ? { ...item, done: false } : item
             )
         }))
     }
@@ -68,7 +68,7 @@ class ListContainer extends React.Component {
     markAllDone() {
         this.setState(prevState => ({
             list1: prevState.list1.map(
-                item => item.done === false ? {...item, done: true}: item
+                item => item.done === false ? { ...item, done: true } : item
             )
         }))
     }
@@ -77,10 +77,10 @@ class ListContainer extends React.Component {
         let total = 0
         let item
         for (item of this.state.list1) {
-            if(item.done === false) { 
-                total ++ 
+            if (item.done === false) {
+                total++
             }
-            else { 
+            else {
                 total = total + 0
             }
         }
@@ -89,6 +89,7 @@ class ListContainer extends React.Component {
 
     render() {
         return (
+            <div className="listContainerContainer">
                 <List
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
@@ -100,6 +101,7 @@ class ListContainer extends React.Component {
                     list1={this.state.list1}
                 >
                 </List>
+            </div>
         )
     }
 }
