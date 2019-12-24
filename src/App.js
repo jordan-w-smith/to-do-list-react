@@ -3,21 +3,37 @@ import ListContainer from './Containers/ListContainer'
 import { render } from '@testing-library/react';
 import './App.css'
 
-function App() {
-  const listContainerTemplate = render(<ListContainer></ListContainer>)
-  const newList = () => {
-    document.querySelector('.lists-container').hasChildNodes(render(<div><ListContainer></ListContainer></div>))
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      layout: [<ListContainer></ListContainer>]
+    }
+    this.handleClick = this.handleClick.bind(this)
   }
-  return (
-    <div className="App">
-      <div className="all-lists-container">
-        <div className="lists-container"></div>
+  handleClick() {
+    this.setState({
+      layout: [...this.state.layout, <ListContainer></ListContainer>]
+    })
+  }
+
+  // const listContainerTemplate = render(<ListContainer></ListContainer>)
+  // const listTemplate = <div className="testClass"><ListContainer></ListContainer></div>
+  // const createTemplate = document.createElement(React.)
+  // const newList = () => {
+  //   document.querySelector('.lists-container').appendChild(createTemplate)
+
+  // document.querySelector('.lists-container', '.all-lists-container').element.style.display = 'flex'
+  render() {
+    return (
+      <div className="App">
+        <button onClick={this.handleClick}>Create List</button>
+        <div className="all-lists-container">
+          {this.state.layout.map(list => {return list})}
+        </div>
       </div>
-      <button onClick={newList}>Create List</button>
-      
-      {/* <ListContainer></ListContainer> */}
-    </div>
-  );
+    );
+  }
 }
 
 export default App;

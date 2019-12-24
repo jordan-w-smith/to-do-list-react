@@ -4,6 +4,7 @@ import './List.css'
 
 const List = (props) => {
     return (
+        
         <div className="list-container">
             <h2>List Name</h2>
 

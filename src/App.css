@@ -2,14 +2,10 @@
   display: flex;
 }
 
-.App {
-  display: flex;
-}
-
 .all-lists-container {
   display: flex;
 }
 
-/* body {
-  display: flex;
-} */
+body {
+  display: block;
+}

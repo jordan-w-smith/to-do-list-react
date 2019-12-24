@@ -89,7 +89,6 @@ class ListContainer extends React.Component {
 
     render() {
         return (
-            <div className="listContainerContainer">
                 <List
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
@@ -101,7 +100,6 @@ class ListContainer extends React.Component {
                     list1={this.state.list1}
                 >
                 </List>
-            </div>
         )
     }
 }

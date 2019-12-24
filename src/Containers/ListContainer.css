@@ -1,3 +1,7 @@
 .lists-container{
     display: flex;
   }
+
+  .listContainerContainer {
+      display: flex;
+  }
