@@ -1,5 +1,6 @@
 import React from 'react'
 import List from '../Components/List'
+import './ListContainer.css'
 
 class ListContainer extends React.Component {
     constructor() {
@@ -88,7 +89,6 @@ class ListContainer extends React.Component {
 
     render() {
         return (
-            <>
                 <List
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
@@ -100,7 +100,6 @@ class ListContainer extends React.Component {
                     list1={this.state.list1}
                 >
                 </List>
-            </>
         )
     }
 }
