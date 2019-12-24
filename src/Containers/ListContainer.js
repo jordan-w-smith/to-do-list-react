@@ -51,7 +51,7 @@ class ListContainer extends React.Component {
 
     changeToDone(listItem) {
         this.setState(prevState => ({
-            list1: prevState.listItems.map(
+            listItems: prevState.listItems.map(
                 item => item.name === listItem.name && listItem.done === false ? { ...item, done: true }
                     : item
             )
@@ -60,7 +60,7 @@ class ListContainer extends React.Component {
 
     changeToNotDone(listItem) {
         this.setState(prevState => ({
-            list1: prevState.list1.map(
+            listItems: prevState.listItems.map(
                 item => item.name === listItem.name && listItem.done === true ? { ...item, done: false } : item
             )
         }))
@@ -68,7 +68,7 @@ class ListContainer extends React.Component {
 
     markAllDone() {
         this.setState(prevState => ({
-            list1: prevState.list1.map(
+            listItems: prevState.listItems.map(
                 item => item.done === false ? { ...item, done: true } : item
             )
         }))
