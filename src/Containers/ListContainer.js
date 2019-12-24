@@ -3,22 +3,23 @@ import List from '../Components/List'
 import './ListContainer.css'
 
 class ListContainer extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            list1: [
-                {
-                    name: "vacuum",
-                    done: false
-                },
-                {
-                    name: "do washing",
-                    done: true
-                },
-                {
-                    name: "iron",
-                    done: false
-                }
+            listName: '',
+            listItems: [
+                // {
+                //     name: "vacuum",
+                //     done: false
+                // },
+                // {
+                //     name: "do washing",
+                //     done: true
+                // },
+                // {
+                //     name: "iron",
+                //     done: false
+                // }
             ],
             input: "",
         }
@@ -40,7 +41,7 @@ class ListContainer extends React.Component {
         event.preventDefault();
         console.log('clicked bro')
         this.setState({
-            list1: [...this.state.list1, {
+            listItems: [...this.state.listItems, {
                 name: this.state.input,
                 done: false
             }],
@@ -50,7 +51,7 @@ class ListContainer extends React.Component {
 
     changeToDone(listItem) {
         this.setState(prevState => ({
-            list1: prevState.list1.map(
+            list1: prevState.listItems.map(
                 item => item.name === listItem.name && listItem.done === false ? { ...item, done: true }
                     : item
             )
@@ -76,7 +77,7 @@ class ListContainer extends React.Component {
     toDoCount() {
         let total = 0
         let item
-        for (item of this.state.list1) {
+        for (item of this.state.listItems) {
             if (item.done === false) {
                 total++
             }
@@ -97,7 +98,8 @@ class ListContainer extends React.Component {
                     markAllDone={this.markAllDone}
                     toDoCount={this.toDoCount}
                     input={this.state.input}
-                    list1={this.state.list1}
+                    listItems={this.state.listItems}
+                    listName={this.props.listName}
                 >
                 </List>
         )

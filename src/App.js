@@ -4,16 +4,29 @@ import { render } from '@testing-library/react';
 import './App.css'
 
 class App extends React.Component {
-  constructor() {
-    super()
+  
+  constructor(props) {
+    super(props)
     this.state = {
-      layout: [<ListContainer></ListContainer>]
+      layout: [],
+      listName: ''
     }
+    // let listNameVar = this.state.listName
+    
     this.handleClick = this.handleClick.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
-  handleClick() {
+  handleClick(event) {
+    event.preventDefault()
+    const setTemplate = <ListContainer listName={this.state.listName}></ListContainer>
     this.setState({
-      layout: [...this.state.layout, <ListContainer></ListContainer>]
+      layout: [...this.state.layout, setTemplate],
+    })
+  }
+
+  handleChange(event) {
+    this.setState({
+      listName: event.target.value
     })
   }
 
@@ -27,9 +40,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <form>
+        <input onChange={this.handleChange} type="text" placeholder="Create List"></input>
         <button onClick={this.handleClick}>Create List</button>
+        </form>
         <div className="all-lists-container">
-          {this.state.layout.map(list => {return list})}
+          {this.state.layout.map(list => list)}
         </div>
       </div>
     );

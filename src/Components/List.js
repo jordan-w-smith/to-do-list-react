@@ -3,16 +3,17 @@ import ListItem from './ListItem'
 import './List.css'
 
 const List = (props) => {
+    console.log(props.listName)
     return (
         
         <div className="list-container">
-            <h2>List Name</h2>
+            <h2>{props.listName}</h2>
 
             <p>Left to do: {props.toDoCount()}</p>
             <button onClick={props.markAllDone}>Change all to done</button>
             <ul>
                 <ListItem
-                    list1={props.list1}
+                    listItems={props.listItems}
                     changeToDone={props.changeToDone}
                     changeToNotDone={props.changeToNotDone}
                 >
