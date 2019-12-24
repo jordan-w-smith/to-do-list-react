@@ -48,7 +48,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <form>
-          <input value={this.state.listName} onChange={this.handleChange} type="text" placeholder="Create List"></input>
+          <input className="createListInput" value={this.state.listName} onChange={this.handleChange} type="text" placeholder="Create List"></input>
           <button onClick={this.handleClick}>Create List</button>
         </form>
         <div className="all-lists-container">

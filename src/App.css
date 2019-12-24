@@ -9,3 +9,7 @@
 body {
   display: block;
 }
+
+.createListInput {
+  margin-left: 20px;
+}
