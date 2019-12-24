@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import './App.css'
 
 class App extends React.Component {
-  
+
   constructor(props) {
     super(props)
     this.state = {
@@ -12,16 +12,23 @@ class App extends React.Component {
       listName: ''
     }
     // let listNameVar = this.state.listName
-    
+
     this.handleClick = this.handleClick.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
   handleClick(event) {
-    event.preventDefault()
-    const setTemplate = <ListContainer listName={this.state.listName}></ListContainer>
-    this.setState({
-      layout: [...this.state.layout, setTemplate],
-    })
+    if (this.state.listName != '') {
+      event.preventDefault()
+      const setTemplate = <ListContainer listName={this.state.listName}></ListContainer>
+      this.setState({
+        layout: [...this.state.layout, setTemplate],
+        listName: ''
+      })
+    }
+    else {
+      event.preventDefault()
+    }
+
   }
 
   handleChange(event) {
@@ -41,8 +48,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <form>
-        <input onChange={this.handleChange} type="text" placeholder="Create List"></input>
-        <button onClick={this.handleClick}>Create List</button>
+          <input value={this.state.listName} onChange={this.handleChange} type="text" placeholder="Create List"></input>
+          <button onClick={this.handleClick}>Create List</button>
         </form>
         <div className="all-lists-container">
           {this.state.layout.map(list => list)}

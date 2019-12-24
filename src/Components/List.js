@@ -19,9 +19,9 @@ const List = (props) => {
                 >
                 </ListItem>
             </ul>
-            <form>
+            <form onSubmit={props.handleSubmit}>
                 <input type="text" value={props.input} onChange={props.handleChange}></input>
-                <input onClick={props.handleSubmit} type="submit"></input>
+                {/* <input onClick={props.handleSubmit} type="submit"></input> */}
             </form>
         </div>
     )
