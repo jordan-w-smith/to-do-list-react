@@ -1,7 +1,6 @@
 import React from 'react';
-import ListContainer from './Containers/ListContainer'
-import { render } from '@testing-library/react';
-import './App.css'
+import ListContainer from './ListContainer'
+import './AppContainer.css'
 
 class App extends React.Component {
 
@@ -11,7 +10,6 @@ class App extends React.Component {
       layout: [],
       listName: ''
     }
-    // let listNameVar = this.state.listName
 
     this.handleClick = this.handleClick.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -37,13 +35,6 @@ class App extends React.Component {
     })
   }
 
-  // const listContainerTemplate = render(<ListContainer></ListContainer>)
-  // const listTemplate = <div className="testClass"><ListContainer></ListContainer></div>
-  // const createTemplate = document.createElement(React.)
-  // const newList = () => {
-  //   document.querySelector('.lists-container').appendChild(createTemplate)
-
-  // document.querySelector('.lists-container', '.all-lists-container').element.style.display = 'flex'
   render() {
     return (
       <div className="App">
