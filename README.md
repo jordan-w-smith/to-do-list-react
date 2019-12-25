@@ -3,7 +3,7 @@
 <h1>React List App</h1>
 
 <h2>Live Demo</h2>
-<a href="http://list-app-react.s3-website.eu-west-2.amazonaws.com/">AWS Bucket</a>
+<a href="http://list-app-react.jwsmithdev.com/">AWS Bucket</a>
 
 <h2>Features</h2>
 <ul>
